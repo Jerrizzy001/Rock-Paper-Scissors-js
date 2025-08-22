@@ -8,12 +8,43 @@
 </head>
 <body>
     <h1 class="fade-in">🎮 Rock Paper Scissors 🎮</h1>
-
+    <h2>Game by Jerry Nwachi(Rizzy)</h2>
+    <button id="game-details">View Rules of Game</button>
+    
+    <div class="rules-container">
+        <div class="rules-content">
+            <h3>Rules of the Game</h3>
+            <p>You will be playing against the computer.</p>
+            <p>You can choose between Rock, Paper, and Scissors.</p>
+            <p>The first one to three points wins.</p>
+            <p>Here are the rules to getting a point in the game:</p>
+            <ul>
+                <li>Rock beats Scissors</li>
+                <li>Scissors beats Paper</li>
+                <li>Paper beats Rock</li>
+            </ul>
+            <p>
+                If the player and computer choose the same option (Ex. Paper and
+                Paper), then no one gets the point.
+            </p>
+        </div>
+        <button id="close-btn">Close</button>
+    </div>
+      
     <div id="play-game" class="fade-in">
         <button id="play-btn">🚀 Start Game</button>
     </div>
-
+    
+    <div id="form-for-input">
+        <form>
+            <label id="name">What is your Name?</label>
+            <input id="username" type="text" placeholder="Enter your name here">
+            <button type="button" disabled id="submit-username">Go To Game</button>
+        </form>
+    </div>
+    
     <div id="user-input">
+        <h2 id="user-greet"></h2>
         <h2 class="game-title">Choose Your Move!</h2>
         
         <div class="game-buttons">
@@ -24,15 +55,16 @@
 
         <div class="game-info">
             <p id="result">Make your choice above!</p>
-            <p id="score">Score: You: 0 | Computer: 0</p>
+            <p id="score">Score: </p>
         </div>
         
-        <button id="end-game">🏁 End Game</button>
+        <button id="end-game">🔄 Reset Game</button>
     </div>
 
     <div id="over-page">
-        <p id="over">Game Over!</p>
-        <button class="play-again-btn" onclick="location.reload()">🔄 Play Again</button>
+        <p>Game Over!</p>
+        <p id="over"></p>
+        <button class="reset-game-btn">Reset Game</button>
     </div>
 
     <script src="script.js"></script>
