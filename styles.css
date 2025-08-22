@@ -26,9 +26,183 @@ h1 {
     letter-spacing: 2px;
 }
 
+h2 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 #play-game {
     text-align: center;
     padding: 2rem;
+}
+
+#game-details {
+    background: linear-gradient(45deg, #48cae4, #023e8a);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 202, 228, 0.3);
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 2rem;
+}
+
+#game-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 202, 228, 0.4);
+}
+
+#form-for-input {
+    display: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+#form-for-input form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#form-for-input label {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#username {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    min-width: 250px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#username:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
+}
+
+#submit-username {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+#submit-username:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#submit-username:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.rules-container {
+    display: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.rules-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+}
+
+.rules-content h3 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.rules-content p, .rules-content li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.rules-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.rules-content li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+#close-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+}
+
+#close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
 }
 
 #play-btn {
@@ -84,7 +258,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-#user-input button {
+#user-input button:not(#end-game) {
     background: linear-gradient(145deg, #4facfe, #00f2fe);
     border: none;
     color: white;
@@ -102,7 +276,7 @@ h1 {
     overflow: hidden;
 }
 
-#user-input button:before {
+#user-input button:not(#end-game):before {
     content: '';
     position: absolute;
     top: 0;
@@ -113,31 +287,38 @@ h1 {
     transition: left 0.5s;
 }
 
-#user-input button:hover:before {
+#user-input button:not(#end-game):hover:before {
     left: 100%;
 }
 
-#user-input button:hover {
+#user-input button:not(#end-game):hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4);
     background: linear-gradient(145deg, #00f2fe, #4facfe);
 }
 
-#user-input button:active {
+#user-input button:not(#end-game):active {
     transform: translateY(-2px);
 }
 
-#rock:hover {
+#user-input button:not(#end-game):disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#rock:hover:not(:disabled) {
     background: linear-gradient(145deg, #ff9a9e, #fad0c4) !important;
     box-shadow: 0 15px 40px rgba(255, 154, 158, 0.4) !important;
 }
 
-#paper:hover {
+#paper:hover:not(:disabled) {
     background: linear-gradient(145deg, #a8edea, #fed6e3) !important;
     box-shadow: 0 15px 40px rgba(168, 237, 234, 0.4) !important;
 }
 
-#scissors:hover {
+#scissors:hover:not(:disabled) {
     background: linear-gradient(145deg, #ffecd2, #fcb69f) !important;
     box-shadow: 0 15px 40px rgba(255, 236, 210, 0.4) !important;
 }
@@ -158,6 +339,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 #score {
@@ -216,6 +398,12 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-buttons {
@@ -224,7 +412,7 @@ h1 {
         gap: 1rem;
     }
     
-    #user-input button {
+    #user-input button:not(#end-game) {
         width: 80%;
         max-width: 300px;
         padding: 1.5rem 2rem;
@@ -248,7 +436,7 @@ h1 {
         gap: 0.8rem;
     }
     
-    #user-input button {
+    #user-input button:not(#end-game) {
         width: 90%;
         padding: 1.2rem 1.5rem;
     }
@@ -287,7 +475,7 @@ h1 {
 }
 
 /* Play Again Button Styles (for the game over screen) */
-.play-again-btn {
+.reset-game-btn {
     background: linear-gradient(45deg, #ff6b6b, #ee5a24);
     border: none;
     color: white;
@@ -301,7 +489,7 @@ h1 {
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
 
-.play-again-btn:hover {
+.reset-game-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
 }
